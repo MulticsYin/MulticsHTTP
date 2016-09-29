@@ -1,0 +1,16 @@
+具体教程可参考我的另一个项目Select_Poll_Epoll_libevent：https://github.com/MulticsYin/Select_Poll_Epoll_libevent。
+重点：
+    epoll 遵循的是多路复用的 I/O模型。其内部只实现了对 关注I/O事件的监听，而没有实现具体的操作。因此我们必须自己选择恰当的时机去 读  或者 写。而对于内核而言，对一个socket 文件描述符 的读 、写 事件的监听 是分离的（可读，未必可写）。因此 ，要想达到最高的效率。用户 做的 I/O操作相应的也应该读、写分离。
+    而如果读写分离的话，对于HTTP服务器而言，server 端 提供的服务有时是需要 客户端 提交的信息的。读、写分离会造成无法有效的 做出响应。所以 我们必须自己维护一段 缓冲区，去将每个socket fd 的有效内容都报春起来。直到进行 写事件 时用到，之后 回收该内存。
+    每个事件句柄中都有 一个 不长使用的 指针（void*）。正好我们可以用它来指向 我们的缓冲区、
+typedef union epoll_data {  
+    void *ptr; //我们可用的 ptr  用来存指向缓冲区 
+    int fd;  
+    __uint32_t u32;  
+    __uint64_t u64;  
+} epoll_data_t;  
+ //感兴趣的事件和被触发的事件  
+struct epoll_event {  
+    __uint32_t events; /* Epoll events */  
+    epoll_data_t data; /* User data variable */  
+};  
