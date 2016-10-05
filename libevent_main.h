@@ -9,8 +9,8 @@
  * 6.处理完一次http请求，清理缓冲区和事件库.
  * */
 
-#ifndef __LIBEVENT_H__
-#define __LIBEVENT_H__
+#ifndef LIBEVENT_MAIN_H
+#define LIBEVENT_MAIN_H
  
 #include "libevent_httpd.h"
 #include <event2/event.h>
