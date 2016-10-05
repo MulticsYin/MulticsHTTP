@@ -1,6 +1,6 @@
-#ifndef __MYHTTP__
+#ifndef EPOLL_HTTP_H
  
-#define __MYHTTP__
+#define EPOLL_HTTP_H
 #include <stdio.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
