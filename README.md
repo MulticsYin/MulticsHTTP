@@ -2,7 +2,7 @@
 
 	该项目是使用多线程/线程池，epoll，libevent网络库分别实现的三个HTTP服务器。		
 
-HTTP协议详解		
+HTTP协议详解(转自http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html)		
 引言		
 
     HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。		
@@ -22,18 +22,16 @@ HTTP协议详解
 	http://host[":"port][abs_path]		
     http表示要通过HTTP协议来定位网络资源；host表示合法的Internet主机域名或者IP地址；port指定一个端口号，为空则使用缺省端口80；abs_path指定请求资源的URI；如果URL中没有给出abs_path，那么当它作为请求URI时，必须以“/”的形式给出，通常这个工作浏览器自动帮我们完成。		
 	eg:		
-	1、输入：www.guet.edu.cn		
-	浏览器自动转换成：http://www.guet.edu.cn/		
-	2、http:192.168.0.116:8080/index.jsp 		
+	输入：www.kmust.edu.c/		
+	浏览器自动转换成：http://www.kmust.edu.cn/		
 
- 
 
 二、HTTP协议详解之请求篇
 
     http请求由三部分组成，分别是：请求行、消息报头、请求正文		
 
     1、请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本，格式如下：Method Request-URI HTTP-Version CRLF 		
-其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。		
+	其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。		
 
     请求方法（所有方法全为大写）有多种，各个方法的解释如下：		
 	GET     请求获取Request-URI所标识的资源		
@@ -244,9 +242,9 @@ HTTP协议详解
 	失去了跟主机的连接按任意键继续...
 
 	4 .注意事项：1、出现输入错误，则请求不会成功。
-          2、报头域不分大小写。
-          3、更深一步了解HTTP协议，可以查看RFC2616，在http://www.letf.org/rfc上找到该文件。
-          4、开发后台程序必须掌握http协议
+	2、报头域不分大小写。
+	3、更深一步了解HTTP协议，可以查看RFC2616，在http://www.letf.org/rfc上找到该文件。
+	4、开发后台程序必须掌握http协议
 
 六、HTTP协议相关技术补充
 
