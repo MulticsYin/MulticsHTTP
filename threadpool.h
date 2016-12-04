@@ -12,7 +12,7 @@
 #include <cstdio>
 #include <exception>
 #include <pthread.h>
-#include "locker.h"
+#include "threadpool_locker.h"
 
 /*考虑到代码复用，将其定义为模板。模板参数T是任务类*/
 template< typename T >
