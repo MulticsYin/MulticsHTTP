@@ -277,11 +277,11 @@ HTTP协议详解(转自http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.
     6、其他：为了提高用户使用浏览器时的性能，现代浏览器还支持并发的访问方式，浏览一个网页时同时建立多个连接，以迅速获得一个网页上的多个图标，这样能更快速完成整个网页的传输。
     HTTP1.1中提供了这种持续连接的方式，而下一代HTTP协议：HTTP-NG更增加了有关会话控制、丰富的内容协商等方式的支持，来提供更高效率的连接。
 
-参考博文：		
-	初出茅庐小菜鸟：http://shaungqiran.blog.51cto.com/		
-	HTTP协议介绍：http://andykcx.blog.51cto.com/464336/101502		
-	HTTP协议详解：http://davidbj.blog.51cto.com/4159484/1530938		
-	             http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html		
-	HTTP协议详解和HTTPD基本介绍：http://5990383.blog.51cto.com/5980383/1651438		
-	HTTP头部详解：http://ynhu33.blog.51cto.com/412835/408801		
+### 参考博文：
+* 初出茅庐小菜鸟：http://shaungqiran.blog.51cto.com/		
+* HTTP协议介绍：http://andykcx.blog.51cto.com/464336/101502		
+* HTTP协议详解：http://davidbj.blog.51cto.com/4159484/1530938  
+http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html		
+* HTTP协议详解和HTTPD基本介绍：http://5990383.blog.51cto.com/5980383/1651438		
+* HTTP头部详解：http://ynhu33.blog.51cto.com/412835/408801		
 	
