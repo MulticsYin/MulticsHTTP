@@ -1,66 +1,57 @@
 # MulticsHTTP
 
-	该项目是使用多线程/线程池，epoll，libevent网络库分别实现的三个HTTP服务器。		
-
-HTTP协议详解(转自http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html)		
-引言		
-
-    HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。		
-    HTTP协议的主要特点可概括如下：		
-	1.支持客户/服务器模式。		
-	2.简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。		
-	3.灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。		
-	4.无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。		
-	5.无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。		
-
- 
-
-一、HTTP协议详解之URL篇		
-
-    http（超文本传输协议）是一个基于请求与响应模式的、无状态的、应用层的协议，常基于TCP的连接方式，HTTP1.1版本中给出一种持续连接的机制，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。		
-    HTTP URL (URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息)的格式如下：		
-	http://host[":"port][abs_path]		
-    http表示要通过HTTP协议来定位网络资源；host表示合法的Internet主机域名或者IP地址；port指定一个端口号，为空则使用缺省端口80；abs_path指定请求资源的URI；如果URL中没有给出abs_path，那么当它作为请求URI时，必须以“/”的形式给出，通常这个工作浏览器自动帮我们完成。		
-	eg:		
-	输入：www.kmust.edu.c/		
-	浏览器自动转换成：http://www.kmust.edu.cn/		
-
-
-二、HTTP协议详解之请求篇
-
-    http请求由三部分组成，分别是：请求行、消息报头、请求正文		
-
-    1、请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本，格式如下：Method Request-URI HTTP-Version CRLF 		
-	其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。		
-
-    请求方法（所有方法全为大写）有多种，各个方法的解释如下：		
-	GET     请求获取Request-URI所标识的资源		
-	POST    在Request-URI所标识的资源后附加新的数据		
-	HEAD    请求获取由Request-URI所标识的资源的响应消息报头		
-	PUT     请求服务器存储一个资源，并用Request-URI作为其标识			
-	DELETE  请求服务器删除Request-URI所标识的资源		
-	TRACE   请求服务器回送收到的请求信息，主要用于测试或诊断		
-	CONNECT 保留将来使用		
-	OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求		
-    应用举例：		
-	GET方法：在浏览器的地址栏中输入网址的方式访问网页时，浏览器采用GET方法向服务器获取资源，eg:GET /form.html HTTP/1.1 (CRLF)		
-
-	POST方法要求被请求服务器接受附在请求后面的数据，常用于提交表单。		
-	eg：POST /reg.jsp HTTP/ (CRLF)			
-	Accept:image/gif,image/x-xbit,... (CRLF)		
-	...
-	HOST:www.guet.edu.cn (CRLF)		
-	Content-Length:22 (CRLF)		
-	Connection:Keep-Alive (CRLF)		
-	Cache-Control:no-cache (CRLF)		
-	(CRLF)         //该CRLF表示消息报头已经结束，在此之前为消息报头		
-	user=jeffrey&pwd=1234  //此行以下为提交的数据		
-
-	HEAD方法与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。利用这个方法，不必传输整个资源内容，就可以得到Request-URI所标识的资源的信息。该方法常用于测试超链接的有效性，是否可以访问，以及最近是否更新。		
-    2、请求报头后述		
-    3、请求正文(略) 		
-
- 
+该项目是使用多线程/线程池，epoll，libevent网络库分别实现的三个HTTP服务器。  
+[HTTP协议详解](转自http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html)		
+## 引言  
+HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。  
+HTTP协议的主要特点可概括如下：  
+* 支持客户/服务器模式。		
+* 简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于HTTP协议简单，使得HTTP服务器的程序规模小，因而通信速度很快。		
+* 灵活：HTTP允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。		
+* 无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。
+* 无状态：HTTP协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。		
+### 一、HTTP协议详解之URL篇		
+http（超文本传输协议）是一个基于请求与响应模式的、无状态的、应用层的协议，常基于TCP的连接方式，HTTP1.1版本中给出一种持续连接的机制，绝大多数的Web开发，都是构建在HTTP协议之上的Web应用。  
+HTTP URL (URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息)的格式如下：  
+```
+http://host[":"port][abs_path]
+```
+http表示要通过HTTP协议来定位网络资源；host表示合法的Internet主机域名或者IP地址；port指定一个端口号，为空则使用缺省端口80；abs_path指定请求资源的URI；如果URL中没有给出abs_path，那么当它作为请求URI时，必须以“/”的形式给出，通常这个工作浏览器自动帮我们完成。  
+__eg:__  
+* 输入：www.kmust.edu.c/		
+* 浏览器自动转换成：http://www.kmust.edu.cn/		
+### 二、HTTP协议详解之请求篇
+http请求由三部分组成，分别是：请求行、消息报头、请求正文  
+1、请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本，格式如下：Method Request-URI HTTP-Version CRLF 		
+其中 Method表示请求方法；Request-URI是一个统一资源标识符；HTTP-Version表示请求的HTTP协议版本；CRLF表示回车和换行（除了作为结尾的CRLF外，不允许出现单独的CR或LF字符）。  
+请求方法（所有方法全为大写）有多种，各个方法的解释如下：  
+```
+GET     请求获取Request-URI所标识的资源		
+POST    在Request-URI所标识的资源后附加新的数据		
+HEAD    请求获取由Request-URI所标识的资源的响应消息报头		
+PUT     请求服务器存储一个资源，并用Request-URI作为其标识			
+DELETE  请求服务器删除Request-URI所标识的资源		
+TRACE   请求服务器回送收到的请求信息，主要用于测试或诊断		
+CONNECT 保留将来使用		
+OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求
+```  
+__应用举例：__
+GET方法：在浏览器的地址栏中输入网址的方式访问网页时，浏览器采用GET方法向服务器获取资源，eg:GET /form.html HTTP/1.1 (CRLF)		
+POST方法要求被请求服务器接受附在请求后面的数据，常用于提交表单。		
+```
+eg：POST /reg.jsp HTTP/ (CRLF)			
+Accept:image/gif,image/x-xbit,... (CRLF)		
+...
+HOST:www.guet.edu.cn (CRLF)		
+Content-Length:22 (CRLF)		
+Connection:Keep-Alive (CRLF)		
+Cache-Control:no-cache (CRLF)		
+(CRLF)         //该CRLF表示消息报头已经结束，在此之前为消息报头		
+user=jeffrey&pwd=1234  //此行以下为提交的数据
+```  
+HEAD方法与GET方法几乎是一样的，对于HEAD请求的回应部分来说，它的HTTP头部中包含的信息与通过GET请求所得到的信息是相同的。利用这个方法，不必传输整个资源内容，就可以得到Request-URI所标识的资源的信息。该方法常用于测试超链接的有效性，是否可以访问，以及最近是否更新。  
+2、请求报头后述  
+3、请求正文(略)  
 
 三、HTTP协议详解之响应篇		
 
