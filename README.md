@@ -1,7 +1,7 @@
 # MulticsHTTP
 
-该项目是使用多线程/线程池，epoll，libevent网络库分别实现的三个HTTP服务器。  
-[HTTP协议详解](转自http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html)		
+使用多线程/线程池，epoll，libevent网络库分别实现的三个HTTP服务器。  
+__转载__   < --- >   [HTTP协议详解](http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html)		
 ## 引言  
 HTTP是一个属于应用层的面向对象的协议，由于其简捷、快速的方式，适用于分布式超媒体信息系统。它于1990年提出，经过几年的使用与发展，得到不断地完善和扩展。目前在WWW中使用的是HTTP/1.0的第六版，HTTP/1.1的规范化工作正在进行之中，而且HTTP-NG(Next Generation of HTTP)的建议已经提出。  
 HTTP协议的主要特点可概括如下：  
