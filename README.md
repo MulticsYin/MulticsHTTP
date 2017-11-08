@@ -263,3 +263,7 @@ http://www.cnblogs.com/li0803/archive/2008/11/03/1324746.html
 * HTTP协议详解和HTTPD基本介绍：http://5990383.blog.51cto.com/5980383/1651438		
 * HTTP头部详解：http://ynhu33.blog.51cto.com/412835/408801		
 	
+## License
+
+MulticsHTTP source code is licensed under the 
+[Apache Licence, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html)
